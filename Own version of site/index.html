@@ -3,135 +3,472 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Путешествия с вдохновением</title>
-    <link rel="stylesheet" href="../Own version of site/css/style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+    <title>Korkyt Ata Kyzylorda University for Students</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Open Sans', sans-serif;
+            background: #FFF8E7;
+            color: #333333;
+            scroll-behavior: smooth;
+        }
+        h1, h2, h3 {
+            font-family: 'Montserrat', sans-serif;
+            color: #2E8B57;
+        }
+        .ornament-bg {
+            background: #1A3C5E url('https://via.placeholder.com/1920x1080?text=Kazakh+Ornament') center/cover;
+            color: #D4A017;
+        }
+        .btn-primary {
+            background: #FF6F61;
+            color: white;
+            transition: all 0.3s ease;
+            border-radius: 8px;
+        }
+        .btn-primary:hover {
+            background: #E55A50;
+            transform: scale(1.05);
+            box-shadow: 0 4px 12px rgba(255, 111, 97, 0.3);
+        }
+        .card {
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+        .card:hover {
+            transform: translateY(-5px) rotate(1deg);
+        }
+        .fade-in {
+            animation: fadeIn 1s ease-in;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .wave-divider {
+            height: 50px;
+            background: url("data:image/svg+xml,%3Csvg viewBox='0 0 1440 50' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 50C240 0 480 50 720 50C960 50 1200 0 1440 50' fill='%231A3C5E'/%3E%3C/svg%3E") no-repeat center/cover;
+        }
+        .kazakh-icon {
+            width: 40px;
+            height: 40px;
+            fill: #D4A017;
+        }
+        .search-content { display: block; }
+    </style>
 </head>
 <body>
-    <!-- Навигация -->
-    <header class="header">
-        <nav class="nav">
-            <div class="logo">TravelVibe</div>
-            <ul class="nav-links">
-                <li><a href="#home">Главная</a></li>
-                <li><a href="#places">Места</a></li>
-                <li><a href="#hotels">Отели</a></li>
-                <li><a href="#routes">Маршруты</a></li>
-                <li><a href="#booking">Бронирование</a></li>
-                <li><a href="#reviews">Отзывы</a></li>
-            </ul>
-        </nav>
+    <!-- Header -->
+    <header class="ornament-bg p-4">
+        <div class="container mx-auto flex justify-between items-center flex-wrap">
+            <h1 class="text-2xl md:text-3xl font-bold">Korkyt Ata Kyzylorda University for Students</h1>
+            <div class="flex space-x-2 mt-2 md:mt-0">
+                <button onclick="switchLanguage('ru')" class="btn-primary px-3 py-1 rounded flex items-center"><svg class="kazakh-icon mr-2"><circle cx="20" cy="20" r="15" /></svg>Русский</button>
+                <button onclick="switchLanguage('kz')" class="btn-primary px-3 py-1 rounded flex items-center"><svg class="kazakh-icon mr-2"><circle cx="20" cy="20" r="15" /></svg>Қазақша</button>
+                <button onclick="switchLanguage('en')" class="btn-primary px-3 py-1 rounded flex items-center"><svg class="kazakh-icon mr-2"><circle cx="20" cy="20" r="15" /></svg>English</button>
+            </div>
+            <div class="w-full md:w-auto mt-2 md:mt-0">
+                <input type="text" id="search" placeholder="Поиск по сайту" class="w-full md:w-64 p-2 rounded border bg-white text-gray-800 focus:outline-none focus:ring-2 focus:ring-coral">
+            </div>
+        </div>
     </header>
 
-    <!-- Главная секция -->
-    <section id="home" class="hero">
-        <div class="hero-content">
-            <h1>Открой мир с TravelVibe</h1>
-            <p>Ищи лучшие места, отели и маршруты для своего приключения</p>
-            <a href="#booking" class="btn">Забронировать</a>
+    <!-- Hero Section -->
+    <section class="py-12 text-center bg-cream">
+        <div class="container mx-auto">
+            <h2 class="text-3xl md:text-4xl font-bold mb-4 fade-in">Всё для студентов Коркыт Ата</h2>
+            <p class="text-lg md:text-xl text-gray-700 mb-6 fade-in">Ресурсы для учёбы, документов и студенческой жизни в Кызылорде.</p>
+            <a href="#resources" class="btn-primary inline-block px-6 py-3 rounded-lg text-lg"><svg class="kazakh-icon inline mr-2"><path d="M10 20 L30 20 L20 10 Z" /></svg>Начать</a>
         </div>
+        <div class="wave-divider"></div>
     </section>
 
-    <!-- Туристические места -->
-    <section id="places" class="section">
-        <h2>Популярные направления</h2>
-        <div class="places-grid">
-            <div class="place-card">
-                <img src="https://icdn.bolshayastrana.com/1200x00/24/b5/24b5059fb8e53351be747d2e5a6a4555.jpeg" alt="Место 1">
-                <h3>Горы Алтая</h3>
-                <p>Невероятные пейзажи и чистый воздух.</p>
+    <!-- Resources Section -->
+    <section id="resources" class="container mx-auto p-4 search-content">
+        <h2 class="text-2xl md:text-3xl font-semibold text-center mb-8 fade-in">Ресурсы</h2>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <div class="card p-6 fade-in">
+                <svg class="kazakh-icon mb-4"><rect x="10" y="10" width="20" height="20" /></svg>
+                <h3 class="text-xl font-bold mb-2">Инструкции по документам</h3>
+                <p class="text-gray-700 mb-4">Инструкции для подачи заявок на стипендии, общежития и другие документы.</p>
+                <a href="#" class="btn-primary inline-block px-4 py-2 rounded">Подробнее</a>
             </div>
-            <div class="place-card">
-                <img src="https://cdn.tripster.ru/thumbs2/9b55e054-046d-11ee-8fc8-223f6c50dd99.1220x600.jpeg" alt="Место 2">
-                <h3>Озеро Байкал</h3>
-                <p>Самое глубокое озеро в мире.</p>
+            <div class="card p-6 fade-in">
+                <svg class="kazakh-icon mb-4"><circle cx="20" cy="20" r="10" /></svg>
+                <h3 class="text-xl font-bold mb-2">Часто задаваемые вопросы</h3>
+                <p class="text-gray-700 mb-4">Ответы на популярные вопросы студентов Коркыт Ата.</p>
+                <a href="#faq" class="btn-primary inline-block px-4 py-2 rounded">Подробнее</a>
             </div>
-            <div class="place-card">
-                <img src="https://kompastour.com/useruploads/regions/region_7a56d6be2b.jpg" alt="Место 3">
-                <h3>Боровое</h3>
-                <p>Солнце, море и история.</p>
+            <div class="card p-6 fade-in">
+                <svg class="kazakh-icon mb-4"><path d="M10 20 L20 10 L30 20" /></svg>
+                <h3 class="text-xl font-bold mb-2">Студенческие организации</h3>
+                <p class="text-gray-700 mb-4">Клубы и сообщества: Enactus, Ыбырай, Жайдарман и другие.</p>
+                <a href="#clubs" class="btn-primary inline-block px-4 py-2 rounded">Подробнее</a>
             </div>
-        </div>
-    </section>
-
-    <!-- Отели -->
-    <section id="hotels" class="section">
-        <h2>Лучшие отели</h2>
-        <div class="hotels-grid">
-            <div class="hotel-card">
-                <img src="https://www.menslife.com/upload/iblock/4f1/marina_bay_sands_hotel_casino_skypark_singapore_from_waterfront_esplanade.jpg" alt="Отель 1">
-                <h3>Grand Hotel</h3>
-                <p>5 звезд, бассейн, спа.</p>
-                <span class="price">От 12000 ₽/ночь</span>
+            <div class="card p-6 fade-in">
+                <svg class="kazakh-icon mb-4"><rect x="15" y="10" width="10" height="20" /></svg>
+                <h3 class="text-xl font-bold mb-2">Общежития</h3>
+                <p class="text-gray-700 mb-4">Адреса и информация об общежитиях Коркыт Ата.</p>
+                <a href="#dormitories" class="btn-primary inline-block px-4 py-2 rounded">Подробнее</a>
             </div>
-            <div class="hotel-card">
-                <img src="https://dynamic-media-cdn.tripadvisor.com/media/photo-o/1d/f8/1c/13/padma-resort-ubud.jpg?w=1200&h=-1&s=1" alt="Отель 2">
-                <h3>Sea Breeze</h3>
-                <p>Вид на море, завтрак включен.</p>
-                <span class="price">От 8000 ₽/ночь</span>
+            <div class="card p-6 fade-in">
+                <svg class="kazakh-icon mb-4"><path d="M10 10 L30 30 M30 10 L10 30" /></svg>
+                <h3 class="text-xl font-bold mb-2">Контакты деканата</h3>
+                <p class="text-gray-700 mb-4">Связь с деканатами и службами поддержки.</p>
+                <a href="#contacts" class="btn-primary inline-block px-4 py-2 rounded">Подробнее</a>
             </div>
-        </div>
-    </section>
-
-    <!-- Маршруты -->
-    <section id="routes" class="section">
-        <h2>Готовые маршруты</h2>
-        <div class="routes-grid">
-            <div class="route-card">
-                <h3>Алтайский трек</h3>
-                <p>7 дней, поход по горам.</p>
+            <div class="card p-6 fade-in">
+                <svg class="kazakh-icon mb-4"><path d="M10 20 H30 V30 H10 Z" /></svg>
+                <h3 class="text-xl font-bold mb-2">Стажировки и стипендии</h3>
+                <p class="text-gray-700 mb-4">Возможности для стажировок, грантов и стипендий.</p>
+                <a href="#opportunities" class="btn-primary inline-block px-4 py-2 rounded">Подробнее</a>
             </div>
-            <div class="route-card">
-                <h3>Байкальская одиссея</h3>
-                <p>5 дней, тур по озеру.</p>
+            <div class="card p-6 fade-in">
+                <svg class="kazakh-icon mb-4"><path d="M20 10 L30 20 L20 30 L10 20 Z" /></svg>
+                <h3 class="text-xl font-bold mb-2">Институты</h3>
+                <p class="text-gray-700 mb-4">Информация об институтах и образовательных программах.</p>
+                <a href="#institutes" class="btn-primary inline-block px-4 py-2 rounded">Подробнее</a>
             </div>
         </div>
     </section>
 
-    <!-- Бронирование -->
-    <section id="booking" class="section">
-        <h2>Забронировать</h2>
-        <form action="https://getform.io/f/bmdkovqa" method="post" class="booking-form">
-            <input type="hidden" name="redirect_to" value="https://твойсайт/thank-you.html">
-            <input type="text" name="name" placeholder="Ваше имя" required>
-            <input type="email" name="email" placeholder="Email" required>
-            <input type="date" name="date" required>
-            <select name="destination" required>
-                <option value="" disabled selected>Выберите направление</option>
-                <option value="Горы Алтая">Горы Алтая</option>
-                <option value="Озеро Байкал">Озеро Байкал</option>
-                <option value="Крым">Крым</option>
-            </select>
-            <button type="submit" class="btn">Отправить</button>
+    <!-- FAQ Section -->
+    <section id="faq" class="container mx-auto p-4 search-content">
+        <h2 class="text-2xl md:text-3xl font-semibold text-center mb-8 fade-in">Часто задаваемые вопросы</h2>
+        <div class="space-y-4">
+            <div class="card p-6">
+                <h3 class="text-lg font-bold">Как подать заявку на стипендию в Коркыт Ата?</h3>
+                <p class="text-gray-700">[Ожидает ответа от Адилета]</p>
+            </div>
+            <div class="card p-6">
+                <h3 class="text-lg font-bold">Какие документы нужны для заселения в общежитие?</h3>
+                <p class="text-gray-700">[Ожидает ответа от Адилета]</p>
+            </div>
+            <div class="card p-6">
+                <h3 class="text-lg font-bold">Как записаться в студенческий клуб?</h3>
+                <p class="text-gray-700">[Ожидает ответа от Адилета]</p>
+            </div>
+            <div class="card p-6">
+                <h3 class="text-lg font-bold">Где найти расписание занятий для моего института?</h3>
+                <p class="text-gray-700">[Ожидает ответа от Адилета]</p>
+            </div>
+            <div class="card p-6">
+                <h3 class="text-lg font-bold">Как связаться с деканатом моего факультета?</h3>
+                <p class="text-gray-700">[Ожидает ответа от Адилета]</p>
+            </div>
+        </div>
+        <div class="wave-divider"></div>
+    </section>
+
+    <!-- Clubs Section -->
+    <section id="clubs" class="container mx-auto p-4 search-content">
+        <h2 class="text-2xl md:text-3xl font-semibold text-center mb-8 fade-in">Студенческие организации</h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div class="card p-6 fade-in">
+                <h3 class="text-xl font-bold mb-2">Enactus Korkyt Ata</h3>
+                <p class="text-gray-700 mb-4">Социальное предпринимательство и проекты для устойчивого развития.</p>
+                <a href="https://korkyt.edu.kz" class="btn-primary inline-block px-4 py-2 rounded">Подробнее</a>
+            </div>
+            <div class="card p-6 fade-in">
+                <h3 class="text-xl font-bold mb-2">Ыбырай</h3>
+                <p class="text-gray-700 mb-4">Педагогическая организация для будущих учителей.</p>
+                <a href="https://korkyt.edu.kz" class="btn-primary inline-block px-4 py-2 rounded">Подробнее</a>
+            </div>
+            <div class="card p-6 fade-in">
+                <h3 class="text-xl font-bold mb-2">Сырлы Калам</h3>
+                <p class="text-gray-700 mb-4">Литературный клуб для творческих студентов.</p>
+                <a href="https://korkyt.edu.kz" class="btn-primary inline-block px-4 py-2 rounded">Подробнее</a>
+            </div>
+            <div class="card p-6 fade-in">
+                <h3 class="text-xl font-bold mb-2">Жауказын</h3>
+                <p class="text-gray-700 mb-4">Студенческий театр для любителей сцены.</p>
+                <a href="https://korkyt.edu.kz" class="btn-primary inline-block px-4 py-2 rounded">Подробнее</a>
+            </div>
+            <div class="card p-6 fade-in">
+                <h3 class="text-xl font-bold mb-2">Кыз Жибек</h3>
+                <p class="text-gray-700 mb-4">Женская организация для поддержки студенток.</p>
+                <a href="https://korkyt.edu.kz" class="btn-primary inline-block px-4 py-2 rounded">Подробнее</a>
+            </div>
+            <div class="card p-6 fade-in">
+                <h3 class="text-xl font-bold mb-2">Жайдарман</h3>
+                <p class="text-gray-700 mb-4">КВН-клуб для юмора и креативности.</p>
+                <a href="https://korkyt.edu.kz" class="btn-primary inline-block px-4 py-2 rounded">Подробнее</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Dormitories Section -->
+    <section id="dormitories" class="container mx-auto p-4 search-content">
+        <h2 class="text-2xl md:text-3xl font-semibold text-center mb-8 fade-in">Общежития</h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div class="card p-6 fade-in">
+                <h3 class="text-xl font-bold mb-2">Общежитие №1</h3>
+                <p class="text-gray-700 mb-4">Адрес: ул. Айтеке би, 29А, Кызылорда</p>
+                <a href="#" class="btn-primary inline-block px-4 py-2 rounded">Подробнее</a>
+            </div>
+            <div class="card p-6 fade-in">
+                <h3 class="text-xl font-bold mb-2">Общежитие №2</h3>
+                <p class="text-gray-700 mb-4">Адрес: ул. Абая, 66, Кызылорда</p>
+                <a href="#" class="btn-primary inline-block px-4 py-2 rounded">Подробнее</a>
+            </div>
+        </div>
+        <div class="wave-divider"></div>
+    </section>
+
+    <!-- Contacts Section -->
+    <section id="contacts" class="container mx-auto p-4 search-content">
+        <h2 class="text-2xl md:text-3xl font-semibold text-center mb-8 fade-in">Контакты деканата</h2>
+        <div class="card p-6 fade-in">
+            <p class="text-gray-700 mb-4">Свяжитесь с деканатом: [Ожидает контактов от Адилета]</p>
+            <a href="#" class="btn-primary inline-block px-4 py-2 rounded">Подробнее</a>
+        </div>
+    </section>
+
+    <!-- Opportunities Section -->
+    <section id="opportunities" class="container mx-auto p-4 search-content">
+        <h2 class="text-2xl md:text-3xl font-semibold text-center mb-8 fade-in">Стажировки и стипендии</h2>
+        <div class="card p-6 fade-in">
+            <p class="text-gray-700 mb-4">Информация о стажировках, грантах и стипендиях доступна на сайте университета: <a href="https://korkyt.edu.kz" class="text-coral hover:underline">korkyt.edu.kz</a>.</p>
+            <a href="https://korkyt.edu.kz" class="btn-primary inline-block px-4 py-2 rounded">Подробнее</a>
+        </div>
+        <div class="wave-divider"></div>
+    </section>
+
+    <!-- Institutes Section -->
+    <section id="institutes" class="container mx-auto p-4 search-content">
+        <h2 class="text-2xl md:text-3xl font-semibold text-center mb-8 fade-in">Институты</h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div class="card p-6 fade-in">
+                <h3 class="text-xl font-bold mb-2">Институт педагогики и традиционного искусства</h3>
+                <p class="text-gray-700 mb-4">Программы: Педагогика, музыка, искусство, казахский язык. Корпус: ул. Айтеке би, 29А, корпус 1.</p>
+                <a href="https://korkyt.edu.kz" class="btn-primary inline-block px-4 py-2 rounded">Подробнее</a>
+            </div>
+            <div class="card p-6 fade-in">
+                <h3 class="text-xl font-bold mb-2">Институт естествознания</h3>
+                <p class="text-gray-700 mb-4">Программы: Биология, география, химия. Корпус: ул. Абая, 66, корпус 2.</p>
+                <a href="https://korkyt.edu.kz" class="btn-primary inline-block px-4 py-2 rounded">Подробнее</a>
+            </div>
+            <div class="card p-6 fade-in">
+                <h3 class="text-xl font-bold mb-2">Инженерно-технологический институт</h3>
+                <p class="text-gray-700 mb-4">Программы: Механизация сельского хозяйства, агрономия. Корпус: ул. Коркыт Ата, 12, корпус 3.</p>
+                <a href="https://korkyt.edu.kz" class="btn-primary inline-block px-4 py-2 rounded">Подробнее</a>
+            </div>
+            <div class="card p-6 fade-in">
+                <h3 class="text-xl font-bold mb-2">Институт экономики и права</h3>
+                <p class="text-gray-700 mb-4">Программы: Экономика, юриспруденция, туризм. Корпус: ул. Айтеке би, 29А, корпус 4.</p>
+                <a href="https://korkyt.edu.kz" class="btn-primary inline-block px-4 py-2 rounded">Подробнее</a>
+            </div>
+            <div class="card p-6 fade-in">
+                <h3 class="text-xl font-bold mb-2">Гуманитарно-педагогический институт</h3>
+                <p class="text-gray-700 mb-4">Программы: История, филология, педагогика. Корпус: ул. Муратбаева, 10, корпус 5.</p>
+                <a href="https://korkyt.edu.kz" class="btn-primary inline-block px-4 py-2 rounded">Подробнее</a>
+            </div>
+            <div class="card p-6 fade-in">
+                <h3 class="text-xl font-bold mb-2">Институт искусственного интеллекта</h3>
+                <p class="text-gray-700 mb-4">Программы: Информатика, ИКТ, машинное обучение. Корпус: ул. Жахаева, 15, корпус 6.</p>
+                <a href="https://korkyt.edu.kz" class="btn-primary inline-block px-4 py-2 rounded">Подробнее</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Scholarship Calculator -->
+    <section id="calculator" class="container mx-auto p-4 search-content">
+        <h2 class="text-2xl md:text-3xl font-semibold text-center mb-8 fade-in">Калькулятор стипендии</h2>
+        <div class="card p-6 fade-in max-w-lg mx-auto">
+            <p class="text-gray-700 mb-4">Введите баллы за рубежные контрольные, чтобы узнать, сколько нужно набрать на экзамене для стипендии (70+ баллов).</p>
+            <input type="number" id="midterm1" placeholder="Баллы за 1-ю рубежку" class="w-full p-3 mb-4 border rounded focus:outline-none focus:ring-2 focus:ring-coral">
+            <input type="number" id="midterm2" placeholder="Баллы за 2-ю рубежку" class="w-full p-3 mb-4 border rounded focus:outline-none focus:ring-2 focus:ring-coral">
+            <button onclick="calculateScholarship()" class="btn-primary px-6 py-3 rounded w-full">Рассчитать</button>
+            <p id="result" class="text-gray-700 mt-4"></p>
+        </div>
+        <div class="wave-divider"></div>
+    </section>
+
+    <!-- Contact Form -->
+    <section id="contact" class="container mx-auto p-4 search-content">
+        <h2 class="text-2xl md:text-3xl font-semibold text-center mb-8 fade-in">Задать вопрос</h2>
+        <form action="https://formspree.io/f/your-form-id" method="POST" class="max-w-lg mx-auto">
+            <input type="text" name="name" placeholder="Ваше имя" class="w-full p-3 mb-4 border rounded focus:outline-none focus:ring-2 focus:ring-coral">
+            <input type="email" name="email" placeholder="Ваш email" class="w-full p-3 mb-4 border rounded focus:outline-none focus:ring-2 focus:ring-coral">
+            <textarea name="message" placeholder="Ваш вопрос" class="w-full p-3 mb-4 border rounded focus:outline-none focus:ring-2 focus:ring-coral"></textarea>
+            <button type="submit" class="btn-primary px-6 py-3 rounded w-full">Отправить</button>
         </form>
     </section>
 
-    <!-- Отзывы -->
-    <section id="reviews" class="section">
-        <h2>Отзывы путешественников</h2>
-        <div class="reviews-grid">
-            <div class="review-card">
-                <div class="rating">★★★★★</div>
-                <p>"Незабываемое приключение на Алтае! Горы, природа — всё потрясающе."</p>
-                <span>— Анна, 2024</span>
-            </div>
-            <div class="review-card">
-                <div class="rating">★★★★☆</div>
-                <p>"Байкал — это магия природы, но дорога утомила."</p>
-                <span>— Иван, 2024</span>
-            </div>
-            <div class="review-card">
-                <div class="rating">★★★☆☆</div>
-                <p>"Крым красивый, но сервис в отеле подкачал."</p>
-                <span>— Мария, 2024</span>
-            </div>
-        </div>
-    </section>
-
-    <!-- Футер -->
-    <footer class="footer">
-        <p>&copy; 2025 TravelVibe. Все права защищены.</p>
+    <!-- Footer -->
+    <footer class="ornament-bg p-4 text-center">
+        <p class="text-gold">Создано Адилетом Ерланулы, студентом университета Коркыт Ата</p>
+        <p class="mt-2">
+            <a href="#" class="text-gold hover:underline">Telegram</a> |
+            <a href="#" class="text-gold hover:underline">Instagram</a>
+        </p>
     </footer>
 
+    <script>
+        function switchLanguage(lang) {
+            const elements = {
+                ru: {
+                    title: "Korkyt Ata Kyzylorda University for Students",
+                    main: "Всё для студентов Коркыт Ата",
+                    submain: "Ресурсы для учёбы, документов и студенческой жизни в Кызылорде.",
+                    start: "Начать",
+                    resources: "Ресурсы",
+                    documents: "Инструкции по документам",
+                    doc_desc: "Инструкции для подачи заявок на стипендии, общежития и другие документы.",
+                    faq: "Часто задаваемые вопросы",
+                    faq_desc: "Ответы на популярные вопросы студентов Коркыт Ата.",
+                    clubs: "Студенческие организации",
+                    clubs_desc: "Клубы и сообщества: Enactus, Ыбырай, Жайдарман и другие.",
+                    dorms: "Общежития",
+                    dorms_desc: "Адреса и информация об общежитиях Коркыт Ата.",
+                    contacts: "Контакты деканата",
+                    contacts_desc: "Связь с деканатами и службами поддержки.",
+                    opportunities: "Стажировки и стипендии",
+                    opp_desc: "Возможности для стажировок, грантов и стипендий.",
+                    institutes: "Институты",
+                    inst_desc: "Информация об институтах и образовательных программах.",
+                    calc: "Калькулятор стипендии",
+                    calc_desc: "Введите баллы за рубежные контрольные, чтобы узнать, сколько нужно набрать на экзамене для стипендии (70+ баллов).",
+                    contact: "Задать вопрос",
+                    name: "Ваше имя",
+                    email: "Ваш email",
+                    message: "Ваш вопрос",
+                    submit: "Отправить",
+                    more: "Подробнее",
+                    search: "Поиск по сайту",
+                    calc_btn: "Рассчитать"
+                },
+                kz: {
+                    title: "Қорқыт Ата Қызылорда университеті студенттер үшін",
+                    main: "Қорқыт Ата студенттеріне арналған барлық нәрсе",
+                    submain: "Қызылордадағы оқу, құжаттар және студенттік өмір үшін пайдалы ресурстар.",
+                    start: "Бастау",
+                    resources: "Ресурстар",
+                    documents: "Құжаттар бойынша нұсқаулар",
+                    doc_desc: "Стипендияға, жатақханаға және басқа құжаттарға өтініш беру нұсқаулары.",
+                    faq: "Жиі қойылатын сұрақтар",
+                    faq_desc: "Қорқыт Ата студенттерінің танымал сұрақтарына жауаптар.",
+                    clubs: "Студенттік ұйымдар",
+                    clubs_desc: "Клубтар мен қауымдастықтар: Enactus, Ыбырай, Жайдарман және басқалар.",
+                    dorms: "Жатақханалар",
+                    dorms_desc: "Қорқыт Ата жатақханаларының мекенжайлары мен ақпараты.",
+                    contacts: "Деканат контактілері",
+                    contacts_desc: "Деканаттармен және қолдау қызметтерімен байланыс.",
+                    opportunities: "Тәжірибелер мен стипендиялар",
+                    opp_desc: "Тәжірибелер, гранттар және стипендиялар үшін мүмкіндіктер.",
+                    institutes: "Институттар",
+                    inst_desc: "Институттар және білім беру бағдарламалары туралы ақпарат.",
+                    calc: "Стипендия калькуляторы",
+                    calc_desc: "Рубеждік бақылаулардың балдарын енгізіңіз, стипендияға (70+ балл) қалу үшін емтиханнан қанша балл қажет екенін біліңіз.",
+                    contact: "Сұрақ қою",
+                    name: "Сіздің атыңыз",
+                    email: "Сіздің email",
+                    message: "Сіздің сұрағыңыз",
+                    submit: "Жіберу",
+                    more: "Толығырақ",
+                    search: "Сайт бойынша іздеу",
+                    calc_btn: "Есептеу"
+                },
+                en: {
+                    title: "Korkyt Ata Kyzylorda University for Students",
+                    main: "Everything for Korkyt Ata Students",
+                    submain: "Resources for studies, documents, and student life in Kyzylorda.",
+                    start: "Get Started",
+                    resources: "Resources",
+                    documents: "Document Instructions",
+                    doc_desc: "Instructions for applying for scholarships, dormitories, and other documents.",
+                    faq: "Frequently Asked Questions",
+                    faq_desc: "Answers to popular questions from Korkyt Ata students.",
+                    clubs: "Student Organizations",
+                    clubs_desc: "Clubs and communities: Enactus, Ybyrai, Zhaydarman, and more.",
+                    dorms: "Dormitories",
+                    dorms_desc: "Addresses and information about Korkyt Ata dormitories.",
+                    contacts: "Dean’s Office Contacts",
+                    contacts_desc: "Contact deans’ offices and support services.",
+                    opportunities: "Internships and Scholarships",
+                    opp_desc: "Opportunities for internships, grants, and scholarships.",
+                    institutes: "Institutes",
+                    inst_desc: "Information about institutes and educational programs.",
+                    calc: "Scholarship Calculator",
+                    calc_desc: "Enter midterm scores to find out how many points you need on the exam to keep your scholarship (70+ points).",
+                    contact: "Ask a Question",
+                    name: "Your Name",
+                    email: "Your Email",
+                    message: "Your Question",
+                    submit: "Submit",
+                    more: "Learn More",
+                    search: "Search the Site",
+                    calc_btn: "Calculate"
+                }
+            };
+            document.querySelector('header h1').textContent = elements[lang].title;
+            document.querySelector('section:nth-child(2) h2').textContent = elements[lang].main;
+            document.querySelector('section:nth-child(2) p').textContent = elements[lang].submain;
+            document.querySelector('section:nth-child(2) a').textContent = elements[lang].start;
+            document.querySelector('section#resources h2').textContent = elements[lang].resources;
+            document.querySelectorAll('.card h3')[0].textContent = elements[lang].documents;
+            document.querySelectorAll('.card p')[0].textContent = elements[lang].doc_desc;
+            document.querySelectorAll('.card a')[0].textContent = elements[lang].more;
+            document.querySelectorAll('.card h3')[1].textContent = elements[lang].faq;
+            document.querySelectorAll('.card p')[1].textContent = elements[lang].faq_desc;
+            document.querySelectorAll('.card a')[1].textContent = elements[lang].more;
+            document.querySelectorAll('.card h3')[2].textContent = elements[lang].clubs;
+            document.querySelectorAll('.card p')[2].textContent = elements[lang].clubs_desc;
+            document.querySelectorAll('.card a')[2].textContent = elements[lang].more;
+            document.querySelectorAll('.card h3')[3].textContent = elements[lang].dorms;
+            document.querySelectorAll('.card p')[3].textContent = elements[lang].dorms_desc;
+            document.querySelectorAll('.card a')[3].textContent = elements[lang].more;
+            document.querySelectorAll('.card h3')[4].textContent = elements[lang].contacts;
+            document.querySelectorAll('.card p')[4].textContent = elements[lang].contacts_desc;
+            document.querySelectorAll('.card a')[4].textContent = elements[lang].more;
+            document.querySelectorAll('.card h3')[5].textContent = elements[lang].opportunities;
+            document.querySelectorAll('.card p')[5].textContent = elements[lang].opp_desc;
+            document.querySelectorAll('.card a')[5].textContent = elements[lang].more;
+            document.querySelectorAll('.card h3')[6].textContent = elements[lang].institutes;
+            document.querySelectorAll('.card p')[6].textContent = elements[lang].inst_desc;
+            document.querySelectorAll('.card a')[6].textContent = elements[lang].more;
+            document.querySelector('section#faq h2').textContent = elements[lang].faq;
+            document.querySelector('section#clubs h2').textContent = elements[lang].clubs;
+            document.querySelector('section#dormitories h2').textContent = elements[lang].dorms;
+            document.querySelector('section#contacts h2').textContent = elements[lang].contacts;
+            document.querySelector('section#opportunities h2').textContent = elements[lang].opportunities;
+            document.querySelector('section#institutes h2').textContent = elements[lang].institutes;
+            document.querySelector('section#calculator h2').textContent = elements[lang].calc;
+            document.querySelector('section#calculator p').textContent = elements[lang].calc_desc;
+            document.querySelector('section#contact h2').textContent = elements[lang].contact;
+            document.querySelector('input[name="name"]').placeholder = elements[lang].name;
+            document.querySelector('input[name="email"]').placeholder = elements[lang].email;
+            document.querySelector('textarea[name="message"]').placeholder = elements[lang].message;
+            document.querySelector('button[type="submit"]').textContent = elements[lang].submit;
+            document.querySelector('#search').placeholder = elements[lang].search;
+            document.querySelector('#calculator button').textContent = elements[lang].calc_btn;
+        }
+
+        function searchContent() {
+            const query = document.getElementById('search').value.toLowerCase();
+            const sections = document.querySelectorAll('.search-content');
+            sections.forEach(section => {
+                const text = section.textContent.toLowerCase();
+                section.style.display = text.includes(query) ? 'block' : 'none';
+            });
+        }
+
+        function calculateScholarship() {
+            const midterm1 = parseFloat(document.getElementById('midterm1').value) || 0;
+            const midterm2 = parseFloat(document.getElementById('midterm2').value) || 0;
+            const result = document.getElementById('result');
+            const total = midterm1 + midterm2;
+            const required = 70;
+            const examNeeded = required - total > 0 ? required - total : 0;
+            if (examNeeded > 0) {
+                result.textContent = `Вам нужно набрать ${examNeeded} баллов на итоговом экзамене, чтобы получить 70+ баллов для стипендии.`;
+            } else {
+                result.textContent = `Ваши баллы (${total}) уже достаточно для стипендии!`;
+            }
+        }
+    </script>
 </body>
 </html>
